@@ -105,6 +105,9 @@
   footer .files{font-family:var(--mono);font-size:.78rem}
   .kbd{font-family:var(--mono);font-size:.78rem;background:var(--panel);border:1px solid var(--line);
     border-bottom-width:2px;border-radius:5px;padding:1px 6px;color:var(--ink)}
+  .gallery3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+  .gallery3 figure{margin:0}
+  .gallery3 figcaption{text-align:left}
 </style>
 
 <div class="topbar"><div class="row">
@@ -167,6 +170,18 @@
   <img src="dock20k/render_dock_web.jpg" alt="3D render of the populated dock board without the Tang">
   <figcaption><span class="es">La placa poblada — se ven los dos zócalos hembra donde encaja el Tang</span><span class="en">The populated board — the two female headers where the Tang plugs in are visible</span></figcaption>
 </figure>
+
+<section>
+  <div class="eyebrow"><span class="es">Vistas</span><span class="en">Views</span></div>
+  <h2><span class="es">Del render al cobre</span><span class="en">From render to copper</span></h2>
+  <p><span class="es">La misma placa vista de tres formas: en 3D desde arriba, el stack Tang+dock en ángulo, y el cobre superior tal cual en KiCad (el rutado real).</span><span class="en">The same board three ways: 3D from above, the Tang+dock stack at an angle, and the top copper straight out of KiCad (the actual routing).</span></p>
+  <div class="gallery3">
+    <figure><img src="dock20k/render_top_web.jpg" alt="Top-down 3D view of the dock board"><figcaption><span class="es">Cenital — el layout de un vistazo</span><span class="en">Top-down — the layout at a glance</span></figcaption></figure>
+    <figure><img src="dock20k/render_iso_ports_web.jpg" alt="Assembled board at a low angle"><figcaption><span class="es">Ángulo bajo — el Tang sobre el zócalo</span><span class="en">Low angle — the Tang on its socket</span></figcaption></figure>
+    <figure><img src="dock20k/layout_top_web.jpg" alt="Top copper layout in KiCad"><figcaption><span class="es">Cobre superior en KiCad — el rutado</span><span class="en">Top copper in KiCad — the routing</span></figcaption></figure>
+  </div>
+</section>
+
 
 <section>
   <div class="eyebrow"><span class="es">Referencia</span><span class="en">Reference</span></div>

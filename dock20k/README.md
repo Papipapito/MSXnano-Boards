@@ -7,6 +7,17 @@ Placa portadora ("dock") para el **Tang Nano 20K** con el core **MSXnano**.
 
 ![Assembled render](render_assembled.png)
 
+### Views / Vistas
+
+| | |
+|:---:|:---:|
+| ![Top-down](render_top_web.jpg) | ![Low angle](render_iso_ports_web.jpg) |
+| *Top-down 3D · Cenital 3D* | *Tang on socket · Tang en zócalo* |
+| ![KiCad top copper](layout_top_web.jpg) | ![Front elevation](render_front.png) |
+| *Top copper routing (KiCad) · Rutado cobre superior* | *Front elevation of the stack · Alzado del stack* |
+
+Full-res: [`render_top.png`](render_top.png) · [`render_iso_ports.png`](render_iso_ports.png) · [`render_dock.png`](render_dock.png) · [`layout_top.png`](layout_top.png) · [`layout_bottom.png`](layout_bottom.png) · PDFs: [schematic](msxnano_dock_schematic.pdf) · [PCB top](msxnano_dock_pcb_top.pdf) / [bottom](msxnano_dock_pcb_bottom.pdf)
+
 ```
 USB-C 5V ──fuse 2A──► +5V ──SS34──► Tang 5V pin (J5.1)
                        ├──► AMS1117-3.3 #1 ──► ESP32-C6

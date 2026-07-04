@@ -5,7 +5,19 @@
 
 *(English below · Español debajo)*
 
-📄 Rich readme / readme enriquecido: [`README.html`](README.html) · 🖼️ Renders: [assembled](dock20k/render_assembled.png) · [board](dock20k/render_dock.png)
+📄 Rich readme / readme enriquecido: [`README.html`](README.html)
+
+### Gallery / Galería
+
+| | |
+|:---:|:---:|
+| ![Top-down 3D](dock20k/render_top_web.jpg) | ![Assembled](dock20k/render_iso_ports_web.jpg) |
+| *Top-down 3D · Cenital 3D* | *Tang mounted on the socket · Tang montado en el zócalo* |
+| ![Assembled iso](dock20k/render_assembled_web.jpg) | ![KiCad top copper](dock20k/layout_top_web.jpg) |
+| *Assembled · Montado* | *Top copper in KiCad (routing) · Cobre superior en KiCad (rutado)* |
+
+More views in [`dock20k/`](dock20k/): full-res renders, front elevation, bottom copper, schematic & PCB PDFs.
+*Más vistas en [`dock20k/`](dock20k/): renders a resolución completa, alzado frontal, cobre inferior, PDFs de esquemático y PCB.*
 
 ---
 
