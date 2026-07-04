@@ -1,0 +1,7 @@
+# KiCad backups / temp
+*-bak
+*.kicad_pro-bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+fp-info-cache
+_*

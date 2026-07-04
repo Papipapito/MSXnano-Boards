@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "msxnano_dock")(type "KiCad")(uri "${KIPRJMOD}/libs/msxnano_dock.pretty")(options "")(descr ""))
+)

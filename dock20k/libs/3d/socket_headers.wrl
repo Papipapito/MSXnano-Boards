@@ -1,0 +1,33 @@
+#VRML V2.0 utf8
+# Two 1x20 female headers for the Tang socket. Units: 1 = 2.54 mm.
+# Rows at x = +/-10.16 mm (=+/-4.0u), 20 pins along y (50.8 mm = 20u), 8.5 mm tall.
+# Row B (x = -4.0)
+Transform {
+  translation -4.0 0 1.673
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.07 0.07 0.08 shininess 0.25 } }
+    geometry Box { size 1.0 20.0 3.346 }
+  } ]
+}
+Transform {
+  translation -4.0 0 3.36
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.72 0.60 0.20 shininess 0.6 } }
+    geometry Box { size 0.5 20.0 0.03 }
+  } ]
+}
+# Row A (x = +4.0)
+Transform {
+  translation 4.0 0 1.673
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.07 0.07 0.08 shininess 0.25 } }
+    geometry Box { size 1.0 20.0 3.346 }
+  } ]
+}
+Transform {
+  translation 4.0 0 3.36
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.72 0.60 0.20 shininess 0.6 } }
+    geometry Box { size 0.5 20.0 0.03 }
+  } ]
+}

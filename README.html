@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSXnano Dock 20K — Proof-of-concept M0S carrier board</title>
+<meta name="description" content="Placa portadora de prueba de concepto para Tang Nano 20K con M0S (BL616), hub USB y ESP32-C6. / Proof-of-concept carrier board.">
+</head>
+<body>
+<style>
+  :root{
+    --paper:#F4F2EA; --panel:#ECE8DC; --panel-2:#E4DFD0;
+    --ink:#1A211E; --ink-soft:#54595330; --muted:#5A6560;
+    --green:#1C6B4A; --green-deep:#0E3B29; --brass:#9C7620; --brass-lt:#C6A24E;
+    --red:#AE3B2C; --line:#D6D0C1;
+    --mono:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--line) 0.6px,transparent 0.6px);
+    background-size:22px 22px;background-position:-11px -11px;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 80px;}
+  a{color:var(--green);text-decoration:none;border-bottom:1px solid #1c6b4a44}
+  a:hover{border-bottom-color:var(--green)}
+  h1,h2,h3{font-family:var(--mono);font-weight:700;line-height:1.15;text-wrap:balance;letter-spacing:-.01em}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--brass);font-weight:700;}
+  /* language toggle */
+  .en{color:var(--muted)}
+  [data-lang="es"] .en{display:none!important}
+  [data-lang="en"] .es{display:none!important}
+  [data-lang="en"] .en{color:inherit}
+  .langsep{display:inline-block;width:1px;height:.9em;background:var(--line);margin:0 .5em;vertical-align:-.05em}
+  [data-lang] .langsep{display:none}
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:20;background:#F4F2EAee;backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);}
+  .topbar .row{max-width:880px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+  .wordmark{font-family:var(--mono);font-weight:700;letter-spacing:-.02em;font-size:1rem;display:flex;align-items:center;gap:9px}
+  .chipdot{width:11px;height:11px;border-radius:2px;background:var(--green);box-shadow:0 0 0 2px #1c6b4a33}
+  .toggle{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;font-family:var(--mono);font-size:.8rem}
+  .toggle button{border:0;background:transparent;color:var(--muted);padding:6px 13px;cursor:pointer;font:inherit}
+  .toggle button.on{background:var(--green);color:#fff}
+  /* hero */
+  header.hero{padding:52px 0 20px}
+  header.hero h1{font-size:clamp(2rem,5.5vw,3.1rem);margin:.1em 0 .15em}
+  .subtitle{font-size:1.12rem;color:var(--muted);max-width:60ch}
+  .metachips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .mchip{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;background:var(--panel);
+    border:1px solid var(--line);border-radius:20px;padding:5px 12px;color:var(--green-deep)}
+  .mchip.warn{color:var(--red);border-color:#ae3b2c44;background:#ae3b2c0d}
+  figure{margin:26px 0}
+  figure img{width:100%;display:block;border-radius:10px;border:1px solid var(--line);
+    box-shadow:0 14px 34px -18px #0e3b2966}
+  figcaption{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-top:9px;text-align:center}
+  section{padding:34px 0;border-top:1px solid var(--line)}
+  section h2{font-size:1.5rem;margin:.2em 0 .1em;display:flex;align-items:baseline;gap:.5em;flex-wrap:wrap}
+  p{max-width:66ch}
+  /* why callout */
+  .why{background:linear-gradient(0deg,#ae3b2c08,#ae3b2c08),var(--panel);
+    border:1px solid #ae3b2c33;border-left:4px solid var(--red);border-radius:10px;padding:20px 24px}
+  .why h2{color:var(--red)}
+  .why strong{color:var(--red)}
+  /* feature grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700}
+  .card h3{font-size:1.02rem;margin:.3em 0 .35em}
+  .card p{font-size:.92rem;color:var(--muted);margin:0}
+  /* table */
+  .tablewrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:10px}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+  th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);background:var(--panel-2)}
+  tbody tr:last-child td{border-bottom:0}
+  td.ref{font-family:var(--mono);font-weight:700;color:var(--green-deep);white-space:nowrap}
+  .jflag{font-family:var(--mono);font-size:.68rem;color:var(--brass);font-weight:700}
+  /* jumper diagrams */
+  .jumpers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+  @media(max-width:640px){.jumpers{grid-template-columns:1fr}}
+  .jbox{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .jbox h3{font-size:1rem;margin:0 0 4px}
+  .jbox .sub{font-size:.86rem;color:var(--muted);margin:0 0 14px}
+  .hdr{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:290px}
+  .pin{font-family:var(--mono);font-size:.78rem;display:flex;align-items:center;gap:7px;
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 9px}
+  .pin b{display:inline-flex;width:17px;height:17px;align-items:center;justify-content:center;
+    background:var(--green-deep);color:#fff;border-radius:3px;font-size:.66rem;flex:none}
+  .pin.pad b{background:var(--brass)}
+  .note{font-family:var(--mono);font-size:.74rem;margin-top:13px;line-height:1.5}
+  .note .ok{color:var(--green)} .note .fl{color:var(--red)}
+  /* recipes */
+  .recipes{counter-reset:r;display:flex;flex-direction:column;gap:12px;margin-top:18px}
+  .rec{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px 16px 54px;position:relative}
+  .rec::before{counter-increment:r;content:counter(r);position:absolute;left:16px;top:15px;
+    width:26px;height:26px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-weight:700;background:var(--green);color:#fff;border-radius:6px;font-size:.85rem}
+  .rec h3{font-size:1rem;margin:0 0 6px}
+  .rec p{font-size:.9rem;margin:0;color:var(--muted)}
+  code{font-family:var(--mono);font-size:.86em;background:var(--panel-2);padding:1px 5px;border-radius:4px;color:var(--green-deep)}
+  footer{border-top:1px solid var(--line);padding-top:26px;margin-top:10px;font-size:.88rem;color:var(--muted)}
+  footer .files{font-family:var(--mono);font-size:.78rem}
+  .kbd{font-family:var(--mono);font-size:.78rem;background:var(--panel);border:1px solid var(--line);
+    border-bottom-width:2px;border-radius:5px;padding:1px 6px;color:var(--ink)}
+</style>
+
+<div class="topbar"><div class="row">
+  <span class="wordmark"><span class="chipdot"></span>MSXnano&nbsp;·&nbsp;Boards</span>
+  <div class="toggle" role="group" aria-label="Language">
+    <button data-set="es" class="on">ES</button><button data-set="en">EN</button>
+  </div>
+</div></div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Proof of concept · Tang Nano 20K</div>
+  <h1>MSXnano Dock 20K</h1>
+  <p class="subtitle">
+    <span class="es">Placa portadora para el Tang Nano 20K: integra un módulo <b>M0S (BL616)</b>, un <b>hub USB de 4 puertos</b> y un <b>ESP32-C6</b> (WiFi) para que todo funcione por los conectores del Tang, sin cables externos.</span>
+    <span class="en">Carrier board for the Tang Nano 20K: it integrates an <b>M0S (BL616)</b> module, a <b>4-port USB hub</b> and an <b>ESP32-C6</b> (WiFi) so everything runs through the Tang's own headers — no external cables.</span>
+  </p>
+  <div class="metachips">
+    <span class="mchip warn">⚑ <span class="es">Prueba de concepto</span><span class="en">Proof of concept</span></span>
+    <span class="mchip">KiCad · 2 <span class="es">capas</span><span class="en">layers</span></span>
+    <span class="mchip">120 × 70 mm</span>
+    <span class="mchip"><span class="es">Esquemático ERC 0 · PCB rutada</span><span class="en">Schematic ERC 0 · PCB routed</span></span>
+  </div>
+</header>
+
+<figure>
+  <img src="dock20k/render_assembled_web.jpg" alt="3D render: Tang Nano 20K mounted on the dock board">
+  <figcaption><span class="es">Render 3D — el Tang Nano 20K montado sobre el zócalo del dock</span><span class="en">3D render — the Tang Nano 20K mounted on the dock's socket</span></figcaption>
+</figure>
+
+<section class="why">
+  <div class="eyebrow"><span class="es">Por qué existe</span><span class="en">Why it exists</span></div>
+  <h2><span class="es">La razón exacta</span><span class="en">The exact reason</span></h2>
+  <p>
+    <span class="es">Desde <strong>~febrero de 2024</strong>, Sipeed fabrica placas Tang Nano 20K (marcadas <code>3921</code> en la serigrafía) cuyo <strong>BL616 de a bordo</strong> lleva el eFuse de <em>secure-boot</em> en un estado que <strong>a menudo le impide ejecutar el firmware FPGA-Companion</strong>. El resultado: <strong>el teclado y el ratón USB dejan de funcionar</strong> (el HDMI y el menú sí van, porque eso lo hace la FPGA, no el BL616). La recomendación oficial para esas placas es usar un <strong>M0S Dock externo</strong>.</span>
+    <span class="en">Since <strong>~February 2024</strong>, Sipeed ships Tang Nano 20K boards (silk-marked <code>3921</code>) whose <strong>on-board BL616</strong> has its <em>secure-boot</em> eFuse in a state that <strong>often prevents it from running the FPGA-Companion firmware</strong>. The result: <strong>the USB keyboard and mouse stop working</strong> (HDMI and the menu still work, because that's the FPGA, not the BL616). The official workaround for those boards is to use an <strong>external M0S Dock</strong>.</span>
+  </p>
+  <p>
+    <span class="es">Estas placas son <strong>pruebas de concepto</strong> que llevan ese arreglo a un PCB propio: integran un <strong>M0S (BL616) dedicado</strong> como companion USB, más el hub y el WiFi, de modo que <strong>no dependes del BL616 bloqueado del Tang</strong> y no necesitas dongles ni cables sueltos.</span>
+    <span class="en">These boards are <strong>proof-of-concept</strong> designs that bake that fix onto a dedicated PCB: they integrate a <strong>dedicated M0S (BL616)</strong> as the USB companion, plus the hub and WiFi, so you <strong>no longer depend on the Tang's locked BL616</strong> and need no dongles or loose cables.</span>
+  </p>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="es">Qué lleva</span><span class="en">What's on board</span></div>
+  <h2><span class="es">La placa, en bloques</span><span class="en">The board, in blocks</span></h2>
+  <div class="grid">
+    <div class="card"><div class="k">BL616</div><h3><span class="es">Módulo M0S</span><span class="en">M0S module</span></h3>
+      <p><span class="es">Companion USB con el firmware FPGA-Companion (build M0S_DOCK), por la ruta SPI externa <code>m0s[]</code>. Sin tocar el RTL del core.</span><span class="en">USB companion running FPGA-Companion (M0S_DOCK build) over the external <code>m0s[]</code> SPI path. No RTL changes.</span></p></div>
+    <div class="card"><div class="k">USB HUB</div><h3>FE1.1s · 4×</h3>
+      <p><span class="es">Hub USB 2.0 aguas abajo del BL616: 2× USB-A + 2× USB-C, con polyfuse y ESD por puerto.</span><span class="en">USB 2.0 hub downstream of the BL616: 2× USB-A + 2× USB-C, each with a polyfuse and ESD.</span></p></div>
+    <div class="card"><div class="k">WiFi</div><h3>ESP32-C6</h3>
+      <p><span class="es">Internet por el firmware UNAPI de ducasp. El C6 (no el WROOM clásico) porque el core fija la UART a 859372 bps.</span><span class="en">Internet via ducasp's UNAPI firmware. The C6 (not classic WROOM) because the core fixes the UART at 859372 bps.</span></p></div>
+    <div class="card"><div class="k">POWER</div><h3>USB-C 5V</h3>
+      <p><span class="es">Entrada única por USB-C: alimenta la placa y el Tang (por su pin de 5 V, con diodo anti-retorno).</span><span class="en">Single USB-C input: powers the board and the Tang (through its 5 V pin, with a reverse-blocking diode).</span></p></div>
+  </div>
+</section>
+
+<figure>
+  <img src="dock20k/render_dock_web.jpg" alt="3D render of the populated dock board without the Tang">
+  <figcaption><span class="es">La placa poblada — se ven los dos zócalos hembra donde encaja el Tang</span><span class="en">The populated board — the two female headers where the Tang plugs in are visible</span></figcaption>
+</figure>
+
+<section>
+  <div class="eyebrow"><span class="es">Referencia</span><span class="en">Reference</span></div>
+  <h2><span class="es">Conectores J1–J12</span><span class="en">Connectors J1–J12</span></h2>
+  <p><span class="es">En uso normal solo hay <b>dos jumpers</b> que colocar (J3 y J10); el resto son cabeceras que se usan una vez para programar.</span><span class="en">In normal use there are only <b>two jumpers</b> to set (J3 and J10); the rest are headers used once, for programming.</span></p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Ref</th><th><span class="es">Nombre</span><span class="en">Name</span></th><th><span class="es">Qué es / para qué</span><span class="en">What it is / for</span></th></tr></thead>
+    <tbody>
+      <tr><td class="ref">J1</td><td>USB-C_POWER</td><td><span class="es">Entrada de alimentación 5 V. También datos para flashear el BL616 (vía J10).</span><span class="en">5 V power input. Also the data path to flash the BL616 (via J10).</span></td></tr>
+      <tr><td class="ref">J2</td><td>ESP_FLASH</td><td><span class="es">Cabecera 1×6 para programar el ESP32-C6 con un adaptador USB-serie.</span><span class="en">1×6 header to program the ESP32-C6 with a USB-serial adapter.</span></td></tr>
+      <tr><td class="ref">J3 <span class="jflag">⚙</span></td><td>ESP_UART_LINK</td><td><span class="es">Jumper 2×2: conecta o aísla la UART FPGA↔ESP.</span><span class="en">2×2 jumper: connect or isolate the FPGA↔ESP UART.</span></td></tr>
+      <tr><td class="ref">J4 / J5</td><td>USB-A 1 / 2</td><td><span class="es">Dos puertos USB-A de salida (teclado, ratón, joypad, pendrive).</span><span class="en">Two USB-A output ports (keyboard, mouse, joypad, flash drive).</span></td></tr>
+      <tr><td class="ref">J6 / J7</td><td>USB-C 1 / 2</td><td><span class="es">Dos puertos USB-C de salida (host, para periféricos con cable C).</span><span class="en">Two USB-C output ports (host, for C-cable peripherals).</span></td></tr>
+      <tr><td class="ref">J8</td><td>WS2812_STRIP</td><td><span class="es">JST 1×3 para una tira de LEDs WS2812 (de la caja).</span><span class="en">1×3 JST for a WS2812 LED strip (in the case).</span></td></tr>
+      <tr><td class="ref">J9</td><td>BL616_FLASH</td><td><span class="es">Cabecera 1×4: log serie y flasheo de emergencia del BL616.</span><span class="en">1×4 header: serial log and emergency flashing of the BL616.</span></td></tr>
+      <tr><td class="ref">J10 <span class="jflag">⚙</span></td><td>BL_USB_SEL</td><td><span class="es">Jumper 2×3: enruta el USB del BL616 al hub (normal) o a J1 (flasheo).</span><span class="en">2×3 jumper: routes the BL616's USB to the hub (normal) or to J1 (flashing).</span></td></tr>
+      <tr><td class="ref">J11</td><td>EXPANSION</td><td><span class="es">2×6 con pines libres del Tang + 5 V/3V3/GND, para ampliaciones (p. ej. MIDI).</span><span class="en">2×6 with the Tang's free pins + 5 V/3V3/GND, for add-ons (e.g. MIDI).</span></td></tr>
+      <tr><td class="ref">J12</td><td>TangNano20K</td><td><span class="es">Zócalo 2×20 donde se enchufa el Tang. Todo pasa por aquí.</span><span class="en">2×20 socket where the Tang plugs in. Everything goes through here.</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="jumpers">
+    <div class="jbox">
+      <h3>J3 · ESP_UART_LINK</h3>
+      <p class="sub"><span class="es">El enlace serie FPGA ↔ ESP32.</span><span class="en">The FPGA ↔ ESP32 serial link.</span></p>
+      <div class="hdr">
+        <span class="pin"><b>1</b>FPGA_TX</span><span class="pin"><b>2</b>ESP_RX0</span>
+        <span class="pin"><b>3</b>ESP_TX0</span><span class="pin"><b>4</b>FPGA_RX</span>
+      </div>
+      <div class="note">
+        <span class="ok">■</span> <span class="es">Normal: 2 caps (1-2 y 3-4).</span><span class="en">Normal: 2 caps (1-2 & 3-4).</span><br>
+        <span class="fl">■</span> <span class="es">Flashear ESP: quitar los caps.</span><span class="en">Flash ESP: remove the caps.</span>
+      </div>
+    </div>
+    <div class="jbox">
+      <h3>J10 · BL_USB_SEL</h3>
+      <p class="sub"><span class="es">A dónde va el USB del BL616 (fila central = común).</span><span class="en">Where the BL616's USB goes (centre row = common).</span></p>
+      <div class="hdr">
+        <span class="pin"><b>1</b>HUB D+</span><span class="pin"><b>2</b>HUB D-</span>
+        <span class="pin pad"><b>3</b>BL D+</span><span class="pin pad"><b>4</b>BL D-</span>
+        <span class="pin"><b>5</b>PC D+</span><span class="pin"><b>6</b>PC D-</span>
+      </div>
+      <div class="note">
+        <span class="ok">■</span> <span class="es">Normal: caps 1-3 y 2-4 (BL616→hub).</span><span class="en">Normal: caps 1-3 & 2-4 (BL616→hub).</span><br>
+        <span class="fl">■</span> <span class="es">Flashear BL616: caps 3-5 y 4-6 (BL616→J1).</span><span class="en">Flash BL616: caps 3-5 & 4-6 (BL616→J1).</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow"><span class="es">Puesta en marcha</span><span class="en">Getting started</span></div>
+  <h2><span class="es">Recetas</span><span class="en">Recipes</span></h2>
+  <div class="recipes">
+    <div class="rec"><h3><span class="es">Funcionamiento normal</span><span class="en">Normal operation</span></h3>
+      <p><span class="es">J3 con sus 2 caps; J10 con los caps arriba (1-3 / 2-4). Tang en J12, alimentación por J1. Periféricos en J4–J7, WiFi por el ESP.</span><span class="en">J3 with its 2 caps; J10 with caps up (1-3 / 2-4). Tang in J12, power via J1. Peripherals in J4–J7, WiFi through the ESP.</span></p></div>
+    <div class="rec"><h3><span class="es">Flashear el ESP32-C6</span><span class="en">Flash the ESP32-C6</span></h3>
+      <p><span class="es">Quita los caps de J3. Adaptador USB-UART en J2 (TX↔RX cruzados). Mantén <span class="kbd">SW2 BOOT</span> y pulsa <span class="kbd">SW1 RST</span>. Programa y vuelve a poner los caps.</span><span class="en">Remove J3's caps. USB-UART adapter on J2 (TX↔RX crossed). Hold <span class="kbd">SW2 BOOT</span> and press <span class="kbd">SW1 RST</span>. Program, then put the caps back.</span></p></div>
+    <div class="rec"><h3><span class="es">Flashear el BL616</span><span class="en">Flash the BL616</span></h3>
+      <p><span class="es">Mueve los caps de J10 a 3-5 / 4-6. Cable USB-C de datos de J1 al PC. Mantén <span class="kbd">SW3 BL_BOOT</span> y pulsa <span class="kbd">SW4 BL_RST</span>. Carga <code>fpga_companion_m0sdock.bin</code> y devuelve los caps.</span><span class="en">Move J10's caps to 3-5 / 4-6. USB-C data cable from J1 to the PC. Hold <span class="kbd">SW3 BL_BOOT</span> and press <span class="kbd">SW4 BL_RST</span>. Load <code>fpga_companion_m0sdock.bin</code>, then restore the caps.</span></p></div>
+  </div>
+</section>
+
+<footer>
+  <p><span class="es"><b>Estado:</b> esquemático completo (ERC 0 errores), PCB de 2 capas rutada al 100% (DRC 0 errores). Antes de fabricar: verificar el zócalo contra un Tang real (filas a 20.32 mm, posición del pin 1).</span><span class="en"><b>Status:</b> complete schematic (ERC 0 errors), 2-layer PCB routed 100% (DRC 0 errors). Before fabrication: verify the socket against a real Tang (rows at 20.32 mm, pin-1 position).</span></p>
+  <p class="files"><span class="es">Ficheros:</span><span class="en">Files:</span> dock20k/ → KiCad project · schematic.pdf · pcb_top/bottom.pdf · bom.csv · CONNECTORS.md · renders</p>
+  <p><span class="es">Diseño para la comunidad MSX. Complementa el proyecto <a href="https://github.com/Papipapito/MSXnano">MSXnano</a>. Los modelos/huellas de terceros (Sipeed M0S, Espressif) conservan su licencia. Firmware BL616 = <a href="https://github.com/MiSTle-Dev/FPGA-Companion">FPGA-Companion</a>; firmware WiFi = <a href="https://github.com/ducasp/ESP32-UNAPI-Firmware">ESP32-UNAPI</a> de ducasp.</span><span class="en">Designed for the MSX community. Complements the <a href="https://github.com/Papipapito/MSXnano">MSXnano</a> project. Third-party models/footprints (Sipeed M0S, Espressif) keep their own licenses. BL616 firmware = <a href="https://github.com/MiSTle-Dev/FPGA-Companion">FPGA-Companion</a>; WiFi firmware = ducasp's <a href="https://github.com/ducasp/ESP32-UNAPI-Firmware">ESP32-UNAPI</a>.</span></p>
+</footer>
+</div>
+
+<script>
+  (function(){
+    var b=document.body, t=document.querySelector('.toggle');
+    function set(l){ b.setAttribute('data-lang',l);
+      t.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x.dataset.set===l);}); }
+    t.addEventListener('click',function(e){ if(e.target.dataset.set) set(e.target.dataset.set); });
+    set('es');
+  })();
+</script>
+
+</body>
+</html>
