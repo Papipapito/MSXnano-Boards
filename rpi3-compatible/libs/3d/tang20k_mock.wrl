@@ -1,0 +1,42 @@
+#VRML V2.0 utf8
+# Tang Nano 20K mock-up (KiCad units: 1 = 2.54 mm). Local axes: x = width, y = length, z = up.
+# PCB slab 22.55 x 54.04 x 1.6 mm
+Transform {
+  translation 0 0 0.315
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.05 0.28 0.16 shininess 0.3 } }
+    geometry Box { size 8.878 21.276 0.63 }
+  } ]
+}
+# GW2AR FPGA 8x8x1.5 at center
+Transform {
+  translation 0 0 0.925
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.08 0.08 0.08 } }
+    geometry Box { size 3.15 3.15 0.59 }
+  } ]
+}
+# HDMI connector at +y end (11.5 x 10 x 6)
+Transform {
+  translation 0 8.66 1.81
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.72 0.73 0.75 shininess 0.8 } }
+    geometry Box { size 4.53 3.94 2.36 }
+  } ]
+}
+# USB-C at -y end (9 x 7.5 x 3.2)
+Transform {
+  translation 0 -9.15 1.26
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.72 0.73 0.75 shininess 0.8 } }
+    geometry Box { size 3.54 2.95 1.26 }
+  } ]
+}
+# microSD slot mid-board (12 x 12 x 1.8)
+Transform {
+  translation 0 -2.5 0.985
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.75 0.76 0.78 shininess 0.7 } }
+    geometry Box { size 4.4 4.4 0.71 }
+  } ]
+}

@@ -34,6 +34,14 @@ Instead of hanging an external dock off the board with loose wires, these boards
 | Board | What it is | Status |
 |-------|------------|--------|
 | [**dock20k**](dock20k/) | Tang Nano 20K carrier: **M0S (BL616)** companion + **FE1.1s** 4-port USB hub (2×USB-A + 2×USB-C) + **ESP32-C6** WiFi (UNAPI). Single USB-C power in. | Schematic ERC 0 · PCB routed (DRC 0) · **not yet fabricated** |
+| [**rpi3-compatible**](rpi3-compatible/) | **Raspberry Pi 3 form factor (85×56 mm, 4-layer).** Fully modular: plug-in **Raspberry Pi Pico (RP2040)** USB companion + **ESP-01S** WiFi + **FE1.1s** hub. No soldered BL616/ESP32 — nothing exotic to source. | PCB routed (DRC 0 electrical) · **JLCPCB fab package ready** · not fabricated |
+
+### rpi3-compatible highlights
+
+- **Plug-in Raspberry Pi Pico (RP2040)** as the USB-HID companion, running the FPGA-Companion **`PICO`** build over the same `m0s[]` SPI path — **no RTL changes**, and it sidesteps the Tang `3921` BL616 secure-boot issue entirely (there is no on-board BL616).
+- **ESP-01S** for WiFi on the core's **859372 bps** UART. Both the Pico and the ESP are **modules on sockets** — trivial to source, replace, or reflash.
+- **Raspberry Pi 3 outline** (85 × 56 mm, RPi3 mounting pattern), **4 copper layers**, routed 100 % with GND planes. Ships with a **complete JLCPCB fab package** (gerbers + BOM + CPL, rotation-corrected).
+- Details & key parts: [`rpi3-compatible/README.md`](rpi3-compatible/README.md).
 
 ### dock20k highlights
 
@@ -59,6 +67,14 @@ En lugar de colgar un dock externo con cables sueltos, estas placas **integran u
 | Placa | Qué es | Estado |
 |-------|--------|--------|
 | [**dock20k**](dock20k/) | Portadora del Tang Nano 20K: companion **M0S (BL616)** + hub USB **FE1.1s** de 4 puertos (2×USB-A + 2×USB-C) + WiFi **ESP32-C6** (UNAPI). Entrada única de 5 V por USB-C. | Esquemático ERC 0 · PCB rutada (DRC 0) · **sin fabricar aún** |
+| [**rpi3-compatible**](rpi3-compatible/) | **Formato Raspberry Pi 3 (85×56 mm, 4 capas).** Totalmente modular: **Raspberry Pi Pico (RP2040)** enchufable como companion USB + **ESP-01S** WiFi + hub **FE1.1s**. Sin BL616/ESP32 soldados — nada raro que abastecer. | PCB rutada (DRC 0 eléctricos) · **paquete de fabricación JLCPCB listo** · sin fabricar |
+
+### Claves de rpi3-compatible
+
+- **Raspberry Pi Pico (RP2040) enchufable** como companion USB-HID, con el build **`PICO`** de FPGA-Companion por la misma ruta SPI `m0s[]` — **sin tocar el RTL**, y esquiva por completo el problema del secure-boot del BL616 de los Tang `3921` (aquí no hay BL616).
+- **ESP-01S** para WiFi en la UART del core a **859372 bps**. Tanto el Pico como el ESP son **módulos en zócalos** — fáciles de abastecer, sustituir o reflashear.
+- **Contorno Raspberry Pi 3** (85 × 56 mm, patrón de anclajes RPi3), **4 capas de cobre**, rutada al 100 % con planos de GND. Incluye un **paquete de fabricación JLCPCB completo** (gerbers + BOM + CPL, con rotaciones corregidas).
+- Detalles y piezas clave: [`rpi3-compatible/README.md`](rpi3-compatible/README.md).
 
 ### Claves de dock20k
 

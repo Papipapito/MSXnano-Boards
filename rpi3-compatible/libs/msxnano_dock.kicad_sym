@@ -1,0 +1,1250 @@
+(kicad_symbol_lib
+  (version 20241209)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (symbol "FE1.1s"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "FE1.1s"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "Package_SO:SSOP-28_5.3x10.2mm_P0.65mm"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "~"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "USB 2.0 High-Speed 4-Port Hub Controller, SSOP-28 (Terminus), Rev B pinout"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "usb hub fe1.1s terminus"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "FE1.1s_0_1"
+      (rectangle
+        (start -17.78 -25.4)
+        (end 17.78 22.86)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "FE1.1s_1_1"
+      (pin bidirectional line
+        (at -20.32 20.32 0)
+        (length 2.54)
+        (name "DPU"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "16"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 17.78 0)
+        (length 2.54)
+        (name "DMU"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "15"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 12.7 0)
+        (length 2.54)
+        (name "DP1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "11"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 10.16 0)
+        (length 2.54)
+        (name "DM1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 5.08 0)
+        (length 2.54)
+        (name "DP2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 2.54 0)
+        (length 2.54)
+        (name "DM2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 -2.54 0)
+        (length 2.54)
+        (name "DP3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 -5.08 0)
+        (length 2.54)
+        (name "DM3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 -10.16 0)
+        (length 2.54)
+        (name "DP4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -20.32 -12.7 0)
+        (length 2.54)
+        (name "DM4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 20.32 20.32 180)
+        (length 2.54)
+        (name "VDD5"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "20"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_out line
+        (at 20.32 17.78 180)
+        (length 2.54)
+        (name "VD33F"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "21"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 15.24 180)
+        (length 2.54)
+        (name "VD33_RevA"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "13"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 20.32 12.7 180)
+        (length 2.54)
+        (name "VBUSM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "18"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 20.32 7.62 180)
+        (length 2.54)
+        (name "XIN"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin output line
+        (at 20.32 5.08 180)
+        (length 2.54)
+        (name "XOUT"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input inverted
+        (at 20.32 0 180)
+        (length 2.54)
+        (name "XRSTJ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "17"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 20.32 -2.54 180)
+        (length 2.54)
+        (name "BUSJ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "19"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input inverted
+        (at 20.32 -5.08 180)
+        (length 2.54)
+        (name "OVCJ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "26"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -7.62 180)
+        (length 2.54)
+        (name "REXT"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "14"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 20.32 -12.7 180)
+        (length 2.54)
+        (name "DRV"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "22"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 20.32 -15.24 180)
+        (length 2.54)
+        (name "LED1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "23"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 20.32 -17.78 180)
+        (length 2.54)
+        (name "LED2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "24"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin open_collector line
+        (at 20.32 -20.32 180)
+        (length 2.54)
+        (name "PWRJ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "25"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 20.32 -22.86 180)
+        (length 2.54)
+        (name "TESTJ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "27"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 0 -27.94 90)
+        (length 2.54)
+        (name "VSS"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at -5.08 -27.94 90)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "12"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin no_connect line
+        (at -7.62 -27.94 90)
+        (length 2.54)
+        (name "NC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "28"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+  (symbol "TangNano20K_Socket"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "TangNano20K_Socket"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "msxnano_dock:TangNano20K_Socket"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "~"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "Socket for Sipeed Tang Nano 20K (2x 1x20 female headers, 20.32mm row spacing). Pin names = Tang silk ball numbers, per official 3921 schematic. A=J5 (right row, 5V end), B=J6 (left row)"
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "tang nano 20k socket sipeed gowin"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "TangNano20K_Socket_0_1"
+      (rectangle
+        (start -17.78 -25.4)
+        (end 17.78 27.94)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "TangNano20K_Socket_1_1"
+      (pin passive line
+        (at -20.32 25.4 0)
+        (length 2.54)
+        (name "73"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 22.86 0)
+        (length 2.54)
+        (name "74"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 20.32 0)
+        (length 2.54)
+        (name "75/BLSPI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 17.78 0)
+        (length 2.54)
+        (name "85/SD_D1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 15.24 0)
+        (length 2.54)
+        (name "77"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 12.7 0)
+        (length 2.54)
+        (name "15/LED5"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 10.16 0)
+        (length 2.54)
+        (name "16/LED4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 7.62 0)
+        (length 2.54)
+        (name "27/ESPTX"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 5.08 0)
+        (length 2.54)
+        (name "28/ESPRX"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 2.54 0)
+        (length 2.54)
+        (name "25/WS2812"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 0 0)
+        (length 2.54)
+        (name "26"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B11"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -2.54 0)
+        (length 2.54)
+        (name "29"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B12"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -5.08 0)
+        (length 2.54)
+        (name "30"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B13"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -7.62 0)
+        (length 2.54)
+        (name "31"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B14"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -10.16 0)
+        (length 2.54)
+        (name "17/LED3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B15"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -12.7 0)
+        (length 2.54)
+        (name "20/LED0"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B16"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -15.24 0)
+        (length 2.54)
+        (name "19/LED1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B17"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -17.78 0)
+        (length 2.54)
+        (name "18/LED2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B18"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -20.32 0)
+        (length 2.54)
+        (name "3V3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B19"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -20.32 -22.86 0)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "B20"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 20.32 25.4 180)
+        (length 2.54)
+        (name "5V"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 22.86 180)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 20.32 180)
+        (length 2.54)
+        (name "76/BLSPI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 17.78 180)
+        (length 2.54)
+        (name "80/SD_D2"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 15.24 180)
+        (length 2.54)
+        (name "42/MISO"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 12.7 180)
+        (length 2.54)
+        (name "41/MOSI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 10.16 180)
+        (length 2.54)
+        (name "56/CSN"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 7.62 180)
+        (length 2.54)
+        (name "54/SCK"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 5.08 180)
+        (length 2.54)
+        (name "51/IRQ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 2.54 180)
+        (length 2.54)
+        (name "48/BLSPI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 0 180)
+        (length 2.54)
+        (name "55/I2S"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A11"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -2.54 180)
+        (length 2.54)
+        (name "49/LCDBL"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A12"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -5.08 180)
+        (length 2.54)
+        (name "86/BLSPI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A13"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -7.62 180)
+        (length 2.54)
+        (name "79/RGB"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A14"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -10.16 180)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A15"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -12.7 180)
+        (length 2.54)
+        (name "3V3"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A16"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -15.24 180)
+        (length 2.54)
+        (name "72"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A17"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -17.78 180)
+        (length 2.54)
+        (name "71"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A18"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -20.32 180)
+        (length 2.54)
+        (name "53/DDC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A19"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 20.32 -22.86 180)
+        (length 2.54)
+        (name "52/DDC"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "A20"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+  (symbol "RPi_Pico"
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 2.54 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Value" "RPi_Pico"
+      (at 0 -2.54 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+    )
+    (property "Footprint" "board8020:RPi_Pico_Socket"
+      (at 0 -5.08 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Datasheet" "~"
+      (at 0 -7.62 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "Description" "Raspberry Pi Pico (RP2040) module as USB-HID host companion (FPGA-Companion). GP2/GP3=USB host D+/D-, GP16/17/18/19/22=SPI to FPGA, VSYS=5V in."
+      (at 0 -10.16 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (property "ki_keywords" "raspberry pi pico rp2040 companion"
+      (at 0 0 0)
+      (effects
+        (font (size 1.27 1.27))
+      )
+      (hide yes)
+    )
+    (symbol "RPi_Pico_0_1"
+      (rectangle
+        (start -12.7 -27.94)
+        (end 12.7 27.94)
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "RPi_Pico_1_1"
+      (pin bidirectional line
+        (at -15.24 25.4 0)
+        (length 2.54)
+        (name "GP0"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "1"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 22.86 0)
+        (length 2.54)
+        (name "GP1"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "2"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -15.24 20.32 0)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "3"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 17.78 0)
+        (length 2.54)
+        (name "GP2_USB_DP"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "4"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 15.24 0)
+        (length 2.54)
+        (name "GP3_USB_DM"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "5"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 12.7 0)
+        (length 2.54)
+        (name "GP4"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "6"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 10.16 0)
+        (length 2.54)
+        (name "GP5"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "7"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -15.24 7.62 0)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "8"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 5.08 0)
+        (length 2.54)
+        (name "GP6"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "9"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 2.54 0)
+        (length 2.54)
+        (name "GP7"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "10"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 0 0)
+        (length 2.54)
+        (name "GP8"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "11"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -2.54 0)
+        (length 2.54)
+        (name "GP9"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "12"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -15.24 -5.08 0)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "13"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -7.62 0)
+        (length 2.54)
+        (name "GP10"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "14"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -10.16 0)
+        (length 2.54)
+        (name "GP11"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "15"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -12.7 0)
+        (length 2.54)
+        (name "GP12"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "16"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -15.24 0)
+        (length 2.54)
+        (name "GP13"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "17"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at -15.24 -17.78 0)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "18"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -20.32 0)
+        (length 2.54)
+        (name "GP14"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "19"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at -15.24 -22.86 0)
+        (length 2.54)
+        (name "GP15"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "20"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 15.24 25.4 180)
+        (length 2.54)
+        (name "VBUS_5V"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "40"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_in line
+        (at 15.24 22.86 180)
+        (length 2.54)
+        (name "VSYS_5V"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "39"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 15.24 20.32 180)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "38"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 15.24 17.78 180)
+        (length 2.54)
+        (name "3V3_EN"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "37"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin power_out line
+        (at 15.24 15.24 180)
+        (length 2.54)
+        (name "3V3_OUT"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "36"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 15.24 12.7 180)
+        (length 2.54)
+        (name "ADC_VREF"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "35"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 10.16 180)
+        (length 2.54)
+        (name "GP28"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "34"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 15.24 7.62 180)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "33"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 5.08 180)
+        (length 2.54)
+        (name "GP27"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "32"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 2.54 180)
+        (length 2.54)
+        (name "GP26"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "31"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin input line
+        (at 15.24 0 180)
+        (length 2.54)
+        (name "RUN"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "30"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -2.54 180)
+        (length 2.54)
+        (name "GP22_IRQ"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "29"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 15.24 -5.08 180)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "28"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -7.62 180)
+        (length 2.54)
+        (name "GP21"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "27"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -10.16 180)
+        (length 2.54)
+        (name "GP20"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "26"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -12.7 180)
+        (length 2.54)
+        (name "GP19_MOSI"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "25"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -15.24 180)
+        (length 2.54)
+        (name "GP18_SCK"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "24"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin passive line
+        (at 15.24 -17.78 180)
+        (length 2.54)
+        (name "GND"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "23"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -20.32 180)
+        (length 2.54)
+        (name "GP17_CS"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "22"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+      (pin bidirectional line
+        (at 15.24 -22.86 180)
+        (length 2.54)
+        (name "GP16_MISO"
+          (effects (font (size 1.27 1.27)))
+        )
+        (number "21"
+          (effects (font (size 1.27 1.27)))
+        )
+      )
+    )
+  )
+)

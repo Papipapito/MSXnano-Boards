@@ -1,0 +1,26 @@
+#VRML V2.0 utf8
+# Sipeed M0S (BL616) mock. Units: 1 = 2.54 mm. Module 10 x 11 mm.
+# green PCB base
+Transform {
+  translation 0 0 0.197
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.05 0.30 0.16 shininess 0.3 } }
+    geometry Box { size 3.937 4.331 0.394 }
+  } ]
+}
+# metal shield can
+Transform {
+  translation 0 -0.3 0.79
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.78 0.79 0.82 shininess 0.85 } }
+    geometry Box { size 3.15 3.35 0.55 }
+  } ]
+}
+# antenna area (tan) at top edge
+Transform {
+  translation 0 2.0 0.42
+  children [ Shape {
+    appearance Appearance { material Material { diffuseColor 0.80 0.70 0.45 shininess 0.2 } }
+    geometry Box { size 3.0 0.55 0.06 }
+  } ]
+}
